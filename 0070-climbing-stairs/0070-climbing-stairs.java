@@ -5,7 +5,7 @@ class Solution {
 
         int[] map = new int[n+1];
 
-        map[0] = 0;
+        // map[0] = 0;
         map[1] = 1;
          map[2] = 2;
 
