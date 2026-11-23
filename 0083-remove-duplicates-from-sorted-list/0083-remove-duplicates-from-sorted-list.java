@@ -12,7 +12,7 @@ class Solution {
             temp = t; 
             t = t.next;} 
         } 
-         temp.next = null; 
+         temp.next = t; 
         return head;
     }
 }
