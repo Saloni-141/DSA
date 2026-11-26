@@ -1,7 +1,5 @@
 class Solution {
     public void reorderList(ListNode head) {
-        ListNode d1 = new ListNode(-1);
-        ListNode d2 = new ListNode(-1);
         ListNode slow = head;
         ListNode fast = head;
         while(fast.next != null && fast.next.next != null){
