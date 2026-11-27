@@ -42,7 +42,7 @@ class Solution {
     //     }
     //     return result;
     // }
-     public ListNode mergeKLists(ListNode[] lists) {
+     public ListNode mergeKLists(ListNode[] lists) {//o(nlogk)
         if(lists.length == 0) return null;
         return divide(lists, 0, lists.length-1);
     }
