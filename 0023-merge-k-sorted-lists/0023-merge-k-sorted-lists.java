@@ -23,24 +23,35 @@ class Solution {
 
 
 
-    public ListNode mergeKLists(ListNode[] lists) {
+    // public ListNode mergeKLists(ListNode[] lists) {
+    //     if(lists.length == 0) return null;
+    //     // ArrayList<ListNode> arr = new ArrayList<>();
+    //     // for(ListNode n : lists) arr.add(n);
+    //     // while(arr.size() > 1){
+    //     //     ListNode a = arr.get(arr.size()-1);
+    //     //     arr.remove(arr.size()-1);
+    //     //     ListNode b = arr.get(arr.size()-1);
+    //     //     arr.remove(arr.size()-1);
+    //     //     ListNode c = merge(a , b);
+    //     //     arr.add(c);
+    //     // }
+    //     // return arr.get(0);
+    //     ListNode result = lists[0];
+    //     for(int i=1; i<lists.length; i++){
+    //         result = merge(result, lists[i]);
+    //     }
+    //     return result;
+    // }
+     public ListNode mergeKLists(ListNode[] lists) {
         if(lists.length == 0) return null;
-        // ArrayList<ListNode> arr = new ArrayList<>();
-        // for(ListNode n : lists) arr.add(n);
-        // while(arr.size() > 1){
-        //     ListNode a = arr.get(arr.size()-1);
-        //     arr.remove(arr.size()-1);
-        //     ListNode b = arr.get(arr.size()-1);
-        //     arr.remove(arr.size()-1);
-        //     ListNode c = merge(a , b);
-        //     arr.add(c);
-        // }
-        // return arr.get(0);
-        ListNode result = lists[0];
-        for(int i=1; i<lists.length; i++){
-            result = merge(result, lists[i]);
-        }
-        return result;
+        return divide(lists, 0, lists.length-1);
+    }
+    public ListNode divide(ListNode lists[] , int left , int right){
+        if(left == right) return lists[left];
+        int mid = left + (right-left)/2;
+        ListNode l1 = divide(lists,left,mid);
+        ListNode l2 = divide(lists,mid+1,right);
+        return merge(l1 , l2);
     }
     public ListNode merge(ListNode h1 , ListNode h2){
         ListNode d = new ListNode(-1);
